@@ -16,51 +16,51 @@
 /** @def TFT_ETOUCH_CS
  * Define the chip select pin for the touch chip.
  */
-#if defined (TEENSYDUINO) // with ILI9341
-# define TFT_ETOUCH_CS 15
-#elif defined (ESP8266) // with ILI9341
-# define TFT_ETOUCH_CS D1 // Chip select pin (T_CS)
-#elif 1
-# define TFT_ETOUCH_CS 3
-#else
-# define TFT_ETOUCH_CS SS
-#endif
+//#if defined (TEENSYDUINO) // with ILI9341
+//# define TFT_ETOUCH_CS 15
+//#elif defined (ESP8266) // with ILI9341
+//# define TFT_ETOUCH_CS D1 // Chip select pin (T_CS)
+//#elif 1
+//# define TFT_ETOUCH_CS 3
+//#else
+//# define TFT_ETOUCH_CS SS
+//#endif
 
 /** @def TFT_ETOUCH_PIRQ
  * Define the irq pin for the touch chip.
  */
-#if 0
-# define TFT_ETOUCH_PIRQ 6
-#elif 0 //defined (ESP8266) // with ILI9341
-# define TFT_ETOUCH_PIRQ D0 // is touched signal pin (T_IRQ) is high when touched
-#elif 0
-# define TFT_ETOUCH_PIRQ 1
-#else
-# define TFT_ETOUCH_PIRQ 255
-#endif
+//#if 0
+//# define TFT_ETOUCH_PIRQ 6
+//#elif 0 //defined (ESP8266) // with ILI9341
+//# define TFT_ETOUCH_PIRQ D0 // is touched signal pin (T_IRQ) is high when touched
+//#elif 0
+//# define TFT_ETOUCH_PIRQ 1
+//#else
+//# define TFT_ETOUCH_PIRQ 255
+//#endif
 
 // include used TFT driver
-#if 0 // using Adafuit lib ILI9341
-#include <Adafruit_ILI9341.h>
-typedef Adafruit_ILI9341 TFT_Driver;
+//#if 0 // using Adafuit lib ILI9341
+//#include <Adafruit_ILI9341.h>
+//typedef Adafruit_ILI9341 TFT_Driver;
 
-# define TFT_DC 4
-# define TFT_CS 3
-# define TFT_RST 17  // on SoftwareReset use -1, and connect pin to 3.3V
+//# define TFT_DC 4
+//# define TFT_CS 3
+//# define TFT_RST 17  // on SoftwareReset use -1, and connect pin to 3.3V
 
-#elif defined (TEENSYDUINO) // with ILI9341
-# include <ILI9341_t3.h>    // Hardware-specific TFT library
-typedef ILI9341_t3 TFT_Driver;
+//#elif defined (TEENSYDUINO) // with ILI9341
+//# include <ILI9341_t3.h>    // Hardware-specific TFT library
+//typedef ILI9341_t3 TFT_Driver;
 
-# define TFT_DC      20  // Data Command control pin
-# define TFT_CS      21  // Chip select pin
-# define TFT_RST      2  // on SoftwareReset use 255, and connect pin to 3.3V
-# define TFT_MOSI     7  // MasterOut SlaveIn pin (DOUT)
-# define TFT_SCLK    14  // SPI clock (SCK)
-# define TFT_MISO    12  // MasterIn SlaveOut pin (DIN)
-# define TFT_BL       3  // Backlight pin must have PWM for analogWrite if set
+//# define TFT_DC      20  // Data Command control pin
+//# define TFT_CS      21  // Chip select pin
+//# define TFT_RST      2  // on SoftwareReset use 255, and connect pin to 3.3V
+//# define TFT_MOSI     7  // MasterOut SlaveIn pin (DOUT)
+//# define TFT_SCLK    14  // SPI clock (SCK)
+//# define TFT_MISO    12  // MasterIn SlaveOut pin (DIN)
+//# define TFT_BL       3  // Backlight pin must have PWM for analogWrite if set
 
-#else // ESP_PLATFORM with eSPI
+//#else // ESP_PLATFORM with eSPI
 #include <TFT_eSPI.h>      // Hardware-specific TFT library
 typedef TFT_eSPI TFT_Driver;
 // manage your TFT setup in TFT_eSPI UserSetup.h
@@ -69,7 +69,7 @@ typedef TFT_eSPI TFT_Driver;
 #error undef TOUCH_CS in TFT_eSPI UserSetup.h for using TFT_eTouch
 # endif
 
-#endif
+//#endif
 
 #ifndef TFT_ETOUCH_PIRQ
 # define TFT_ETOUCH_PIRQ 255
@@ -121,8 +121,8 @@ typedef TFT_eSPI TFT_Driver;
 /** @def TOUCH_DEFAULT_CALIBRATION
  * This is the used touch configuration. If it's match to your configuration, you can disable TOUCH_USE_USER_CALIBRATION.
  */
-#define TOUCH_DEFAULT_CALIBRATION { 272, 3749, 3894, 341, 0 }
-
+//#define TOUCH_DEFAULT_CALIBRATION { 272, 3749, 3894, 341, 0 }
+#define TOUCH_DEFAULT_CALIBRATION { 412, 3782, 3775, 236, 2 }
 /** @def TOUCH_FILTER_TYPE
  * If this defined is set the touch driver filter raw data with a fir filter,
  * define additional TOUCH_X_FILTER, TOUCH_Y_FILTER, TOUCH_Z_FILTER for the value to filter
